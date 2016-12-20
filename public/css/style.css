@@ -1,0 +1,43 @@
+.wrapper-content{
+    padding: 0px 20px 40px;
+}
+body{
+    background-color: #f3f3f4;
+}
+.wrapperWhite{
+    background-color: white;
+}
+
+.litleHeader{
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 2px 0 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 5px 15px 5px;
+   /* min-height: 48px;*/
+}
+
+.litleHeader h5{
+    font-weight: 600;
+}
+
+.litleBody{
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+}
+.form-control{
+    border-radius: 0 !important;
+}
+.hr-line-dashed{
+    border-top: 1px dashed #e7eaec;
+    color: #ffffff;
+    background-color: #ffffff;
+    height: 1px;
+    margin: 20px 0;
+}
