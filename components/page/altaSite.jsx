@@ -2,7 +2,7 @@ import React from 'react';
 import { Form,FormGroup,Col,Checkbox,Button,ControlLabel,FormControl,Row } from 'react-bootstrap';
 import DatePicker from 'react-bootstrap-date-picker';
 import { AutoComplete } from 'material-ui';
-import Formulario from './Site/FormularioSite.jsx';
+import Formulario from './site/FormularioSite.jsx';
 
 class Alta extends React.Component{
 
@@ -19,6 +19,10 @@ class Alta extends React.Component{
 
     Cambiar(e){
         this.setState({FormPublic: parseInt(e.target.value)});
+    }
+
+    agregarPublic(e){
+        this.setState({FormPublic:parseInt(e.target.value)});
     }
 
     render(){
@@ -145,8 +149,11 @@ class Alta extends React.Component{
                                                     />
                                                 </Col>
                                             </FormGroup>
-                                        </Form>;
-                                    </Col>
+                                            <Button type="button" className="btn btn-default btn-sm" value="2" onClick={this.agregarPublic.bind(this)}>
+                                                <span className="glyphicon glyphicon-plus"/>
+                                            </Button>
+                                        </Form>
+                                    </Col>;
                                     break;
                                 case 2:
                                     return <Formulario/>;

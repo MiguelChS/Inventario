@@ -408,8 +408,8 @@ class Equipo extends React.Component{
                     </Table>
                 </Col>
                 <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
-                    <Modal.Header>
-                        Asignar Posicion
+                    <Modal.Header closeButton>
+                        <Modal.Title>Asignar Posicion</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Form inline>

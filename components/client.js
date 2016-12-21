@@ -5,7 +5,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, browserHistory,IndexRoute } from 'react-router';
 import Inicio from './page/inicio.jsx';
-import Equipo from './page/altaEquipo.jsx';
+import Equipo from './page/equipo/indexAlta.jsx';
 var Site = require('./page/altaSite.jsx');
 var Index = require('./index.jsx');
 
