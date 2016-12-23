@@ -3,6 +3,7 @@ import {Form,Col} from 'react-bootstrap';
 import Input from './input.jsx';
 import Select from  './select.jsx';
 import InputFecha from './inputFecha.jsx';
+import AutoComplete from '../../AutoComplete/autoComplete.jsx';
 
 export default class Formulario extends React.Component{
 
@@ -29,6 +30,13 @@ export default class Formulario extends React.Component{
         }
     }
 
+    test(e){
+        this.setState({idCarga: e},()=>{
+            console.log(this.state.idCarga);
+        })
+    }
+
+
 
     render(){
         return(
@@ -43,7 +51,7 @@ export default class Formulario extends React.Component{
                     <Select label="Modelo" id="idModelo"/>
                 </Col>
                 <Col xs={12} sm={6} md={4}>
-                    <Select label="Carga" id="idCarga"/>
+                    <AutoComplete resultado={this.test.bind(this)}/>
                 </Col>
                 <Col xs={12} sm={6} md={4}>
                     <Select label="SNMP" id="idSNMP"/>
