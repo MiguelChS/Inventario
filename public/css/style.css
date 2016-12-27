@@ -41,3 +41,14 @@ body{
     height: 1px;
     margin: 20px 0;
 }
+.btn-white {
+    color: inherit;
+    background: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+}
+.TableMiddle > tbody > tr > td{
+    vertical-align: middle;
+}

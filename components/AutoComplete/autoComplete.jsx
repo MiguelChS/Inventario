@@ -29,9 +29,6 @@ export default class AutoComplete extends React.Component{
             this.props.resultado(this.state.resultSelect);
         });
     }
-    componentDidUpdate(){
-        console.log(this.state);
-    }
 
     filtrarSource(e){
         let value = Trim(e.target.value);
@@ -60,16 +57,21 @@ export default class AutoComplete extends React.Component{
     }
 
     offFocus(){
+        console.log(this.hoverOnResult);
+        if(this.hoverOnResult) return;
         let value = Trim(this.refs.input.value).toUpperCase();
         if(this.state.resultSelect == null){
             this.refs.input.value="";
+            this.setState({showResult:"none"});
             return;
         }
 
         if(Trim(this.state.source[this.state.resultSelect]).toUpperCase() != value){
-            this.setState({resultSelect:null});
+            this.setState({resultSelect:null,showResult:"none"});
             this.refs.input.value="";
         }
+
+        this.setState({showResult:"none"});
     }
 
 
@@ -83,18 +85,23 @@ export default class AutoComplete extends React.Component{
             backgroundColor:"white",
             border:"1px solid #e7eaec",
             width:"100%",
-            display: this.state.showResult
+            display: this.state.showResult,
+            zIndex :"10"
         };
         const styleInput = {
             width:"100%"
         };
         return (
             <div style={styleDiv}>
-                <input type="text" style={styleInput} onChange={this.filtrarSource.bind(this)} ref="input"/>
+                <input type="text" style={styleInput}
+                       onChange={this.filtrarSource.bind(this)}
+                       onBlur={this.offFocus.bind(this)}
+                       ref="input"
+                       className="form-control" />
                 <div style={styleResul}
                      ref="result"
-                     onMouseEnter={()=>{ this.hoverOnResult = true}}
-                     onMouseOut={()=>{ this.hoverOnResult = false}}>
+                     onMouseOver={()=>{ this.hoverOnResult = true; console.log("entre");}}
+                     onMouseOut={()=>{ this.hoverOnResult = false; console.log("Sali");}}>
                     {this.state.result}
                 </div>
             </div>

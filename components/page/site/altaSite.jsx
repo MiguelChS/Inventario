@@ -2,7 +2,7 @@ import React from 'react';
 import { Form,FormGroup,Col,Checkbox,Button,ControlLabel,FormControl,Row } from 'react-bootstrap';
 import DatePicker from 'react-bootstrap-date-picker';
 import { AutoComplete } from 'material-ui';
-import Formulario from './site/FormularioSite.jsx';
+import Formulario from './FormularioSite.jsx';
 
 class Alta extends React.Component{
 

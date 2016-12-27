@@ -19,7 +19,7 @@ export default class Navegador extends React.Component{
                         <NavDropdown eventKey={3} title="Alta" id="basic-nav-dropdown">
                             <LinkContainer to="equipo"><MenuItem>Equipo</MenuItem></LinkContainer>
                             <LinkContainer to="site"><MenuItem eventKey={3.2}>Site</MenuItem></LinkContainer>
-                            <MenuItem eventKey={3.3}>Posicion</MenuItem>
+                            <LinkContainer to="posicion"><MenuItem eventKey={3.2}>Posicion</MenuItem></LinkContainer>
                         </NavDropdown>
                         <NavDropdown eventKey={3} title="Modificacion" id="basic-nav-dropdown">
                             <MenuItem eventKey={3.1}>Equipo</MenuItem>

@@ -38,10 +38,10 @@ export default class InputFecha extends React.Component{
                         if( typeof this.props.dual != 'undefined' && this.props.dual == "true"){
                             return <Row>
                                         <Col xs={6}>
-                                            <DatePicker2 onChange={this.changeDate1.bind(this)} maxDate={this.state.max} ref="data1" mode="date" inputFormat={this.props.format} />
+                                            <DatePicker2 sm="sm" onChange={this.changeDate1.bind(this)} maxDate={this.state.max} ref="data1" mode="date" inputFormat={this.props.format} />
                                         </Col>
                                         <Col xs={6}>
-                                            <DatePicker2 onChange={this.changeDate2.bind(this)} minDate={this.state.min} ref="data2" mode="date" inputFormat={this.props.format} />
+                                            <DatePicker2 sm="sm" onChange={this.changeDate2.bind(this)} minDate={this.state.min} ref="data2" mode="date" inputFormat={this.props.format} />
                                         </Col>
                                     </Row>
                         }else{
