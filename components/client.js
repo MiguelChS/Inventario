@@ -4,7 +4,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router,browserHistory } from 'react-router';
-debugger;
+
 let router = require('./router.jsx');
 
 const app = document.getElementById('app');

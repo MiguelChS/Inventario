@@ -58,11 +58,10 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	debugger; /**
-	           * Created by Miguel on 5/12/2016.
-	           */
+	var router = __webpack_require__(241); /**
+	                                       * Created by Miguel on 5/12/2016.
+	                                       */
 	
-	var router = __webpack_require__(241);
 	
 	var app = document.getElementById('app');
 	
