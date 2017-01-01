@@ -6,13 +6,14 @@ const sql = require("mssql");
 class sqlServer{
     constructor(){
         let config = {
-            user: `WebInventario`,
-            password: '!nv3nt4r!0',
-            server: 'SARBUE8000',
-            database: 'SERVICE',
-            connectionTimeout: 300000,
-            requestTimeout: 300000
+            user: '',
+            password:'',
+            server:'',
+            database:''
         };
+        Object.assign(config,JSON.parse(process.env.DATABASE_INVEN));
+        config.connectionTimeout= 300000;
+        config.requestTimeout= 300000;
         this.connection = new sql.Connection(config);
         this.Request = new sql.Request(this.connection);
     }

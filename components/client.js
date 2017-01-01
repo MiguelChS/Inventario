@@ -9,6 +9,11 @@ let router = require('./router.jsx');
 
 const app = document.getElementById('app');
 
+window.Equipo={};
+window.Site={};
+window.Posicion ={};
+
+
 ReactDOM.render(
     <Router history={browserHistory}>
         {router}

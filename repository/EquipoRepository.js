@@ -8,83 +8,112 @@ class EquipoRepository{
 }
 
 EquipoRepository.prototype.getlistMarca = function () {
-    new this.DB().executeQuery(`select * from marca`)
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((err)=>{
-            console.dir(err);
-        })
+    return new Promise((resolve,reject)=>{
+        new this.DB().executeQuery(`select  id as value, marca as label from marca`)
+            .then((result)=>{
+                resolve({marcas:result})
+            })
+            .catch((err)=>{
+                reject(err)
+            })
+    });
+};
+
+EquipoRepository.prototype.getPlanta = function () {
+    return new Promise((resolve,reject)=>{
+        new this.DB().queryStream(`select id as value, planta +' - '+prefijo as label from planta`)
+            .then((result)=>{
+                resolve({planta:result});
+            })
+            .catch((err)=>{
+                reject(err)
+            })
+    })
 };
 
 EquipoRepository.prototype.getListModelo = function (idMarca) {
-    new this.DB().queryStream(`select * from modelo where id_marca = ${idMarca}`)
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((err)=>{
-            console.dir(err);
-        })
+    return new Promise((resolve,reject) => {
+        new this.DB().queryStream(`select id as value, modelo as label from modelo where id_marca = ${idMarca}`)
+            .then((result)=>{
+                resolve({modelo:result});
+            })
+            .catch((err)=>{
+                reject(err);
+            })
+    });
 };
 
 EquipoRepository.prototype.getGarantia = function () {
-    new this.DB().executeQuery(`select * from garantia`)
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((err)=>{
-            console.dir(err);
-        })
+    return new Promise((resolve,reject) => {
+        new this.DB().executeQuery(`select id as value, garantia as label from garantia`)
+            .then((result)=>{
+                resolve({garantia:result});
+            })
+            .catch((err)=>{
+                reject(err);
+            })
+    })
 };
 
 EquipoRepository.prototype.getCarga = function () {
-    new this.DB().queryStream(`select * from carga`)
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((err)=>{
-            console.dir(err);
-        })
+    return new Promise((resolve,reject)=>{
+        new this.DB().queryStream(`select id as value,carga as label from carga`)
+            .then((result)=>{
+                resolve({carga:result});
+            })
+            .catch((err)=>{
+                reject(err);
+            })
+    })
 };
 
 EquipoRepository.prototype.getSnmp = function () {
-    new this.DB().executeQuery(`select * from snmp`)
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((err)=>{
-            console.dir(err);
-        })
+    return new Promise((resolve,reject)=>{
+        new this.DB().executeQuery(`select id as value,version as label from snmp`)
+            .then((result)=>{
+                resolve({snmp:result});
+            })
+            .catch((err)=>{
+                reject(err);
+            })
+    })
+
 };
 
 EquipoRepository.prototype.getSO = function () {
-    new this.DB().executeQuery(`select * from sistema_operativo`)
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((err)=>{
-            console.dir(err);
-        })
+    return new Promise((resolve,reject) => {
+        new this.DB().executeQuery(`select id as value,sistema_operativo as label from sistema_operativo`)
+            .then((result)=>{
+                resolve({so:result});
+            })
+            .catch((err)=>{
+                reject(err);
+            })
+    })
 };
 
 EquipoRepository.prototype.getEstado = function () {
-    new this.DB().executeQuery(`select * from estado`)
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((err)=>{
-            console.dir(err);
-        })
+    return new Promise((resolve,reject) =>{
+        new this.DB().executeQuery(`select id as value,estado as label from estado`)
+            .then((result)=>{
+                resolve({estado:result});
+            })
+            .catch((err)=>{
+                reject(err);
+            })
+    })
 };
 
 EquipoRepository.prototype.getXFS = function () {
-    new this.DB().executeQuery(`select 1 as id, 1 as value `)
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((err)=>{
-            console.dir(err);
-        })
+    return new Promise((resolve,reject) =>{
+        new this.DB().executeQuery(`select 1 as value, 1 as label `)
+            .then((result)=>{
+                resolve({xfs:result});
+            })
+            .catch((err)=>{
+                reject(err);
+            })
+    })
 };
 
-module.exports = EquipoRepository;
+module.exports = new EquipoRepository();

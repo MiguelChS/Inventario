@@ -9,6 +9,7 @@
   "author": "Team Analysis",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.15.3",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-add-module-exports": "^0.2.1",

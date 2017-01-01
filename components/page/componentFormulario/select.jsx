@@ -1,7 +1,12 @@
 import React from 'react';
-import { FormGroup , FormControl, Col, ControlLabel} from 'react-bootstrap';
-
+import { FormGroup , Col, ControlLabel} from 'react-bootstrap';
+import OptionSelect from './optionSelect.jsx';
 export default class Select extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+        }
+    }
     render(){
         return(
             <FormGroup controlId={this.props.id}>
@@ -9,11 +14,11 @@ export default class Select extends React.Component{
                     {this.props.label}
                 </Col>
                 <Col xs={12} sm={( typeof this.props.col == 'undefined' ? 10 : this.props.col.input)}>
-                    <FormControl componentClass="select">
-                        <option value="other">XP</option>
-                        <option value="select">win 7</option>
-                        <option value="other">Win 10</option>
-                    </FormControl>
+                    <select className="form-control">
+                        {this.props.dataSource.map((obj,index)=>{
+                            return <OptionSelect key={index} value={obj.value} label={obj.label}/>
+                        })}
+                    </select>
                 </Col>
             </FormGroup>
         )
